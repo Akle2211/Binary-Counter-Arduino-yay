@@ -24,13 +24,13 @@ void iterate(int x,int pins[], int nb_pins){      //lights up LEDs corresponding
   
   int temp = pow(2,nb_pins-1);                    //temp = 2**n, starts big, then is divided by two after each loop
 
-  for(int i = nb_pins; i > 0;i--){
+  for(int i = nb_pins; i > 0;i--) {
     if(checker(x, temp)) {            //if x contains temp
       digitalWrite(i,HIGH);                       
       x =- temp;                      //sub x by temp
     }
     else {digitalWrite(i,LOW);}       //else x does not contain temp
-
+    
     temp /= 2;                        //check for next power of two. eg: 8 --> 4    
   }
 }
@@ -55,7 +55,7 @@ void loop() {
   //eg: you have 4 pins, so 8+4+2+1 = 15 is the limit)
   if(number > pow(2,nb_pins)){number = 0;}
 
-  //iterate to light binary representation of "number"
+  //light up binary representation of "number"
   iterate(number,pins,nb_pins);
 
   //next number
@@ -65,6 +65,7 @@ void loop() {
   ////int time_ = analogRead(A0);
   ////delay(time_);
 
+  //time = "speed"
   delay(200);
 }
 
