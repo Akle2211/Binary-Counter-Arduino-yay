@@ -24,9 +24,6 @@ void iterate(int x,int pins[], int nb_pins){      //lights up LEDs corresponding
   
   int temp = pow(2,nb_pins-1);                    //temp = 2**n, starts big, then is divided by two after each loop
 
-  //check if x is made up of one power of two
-  //if yes, light LED corresponding to that power of two,
-  //then sub x by that power of two.
   for(int i = nb_pins; i > 0;i--){
     if(checker(x, temp)) {            //if x contains temp
       digitalWrite(i,HIGH);                       
